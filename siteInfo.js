@@ -1,7 +1,7 @@
 export default {
-  Siteroot:"https://kouzhao.bolestr.com/?g=api&",
+  Siteroot:"",
   Version:'1.0',
-  Name:'欧洲直采',
+  Name:'gauzeMask',
   lang_ch:{
     auth:['微信授权','取消'],
     good_list: ['中文', '英文', '搜索', '搜索商品名称', '我的订单', '点击加载更多', '没有更多了', '购买', '加载中...','欧洲直采','￥'],
