@@ -1,0 +1,64 @@
+/* pages/goods/list.wxss */
+page{
+  padding-top:100rpx;
+}
+.cu-card.article>.cu-item .content {
+  flex-direction: column;
+  padding: 0;
+}
+.cu-list.grid>.cu-item.goods-list {
+  padding: 30rpx 20rpx;
+}
+.cu-list.grid>.cu-item.goods-list>image {
+  height: 300rpx;
+}
+.cu-list.grid{
+  text-align: left;
+}
+.cu-list.grid>.goods-list text.title{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;  
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-wrap:break-word;
+  color:var(--black);
+  font-size: 28rpx;
+}
+.cu-list.grid>.cu-item.goods-list text.price{
+  color: var(--red);
+  font-size: 28rpx;
+}
+.cu-list.grid>.cu-item.goods-list text.lineThrough{
+  text-decoration: line-through;
+  color:var(--gray);
+  font-size: 22rpx;
+}
+navigator{
+  width: inherit;
+  height: inherit;
+  display: inherit
+}
+
+.grid.col-2>navigator{
+  width: 50%; 
+}
+.cu-bar .cu-avatar:first-child {
+ overflow: hidden
+}
+.auth-btn{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 20rpx;
+  background-color:rgba(0,0,0,0.2);
+  text-shadow: 2rpx 2rpx 4rpx rgba(0,0,0,0.5);
+}
+.cu-bar .cu-avatar:first-child{
+  margin-left:0;
+}
+.cu-bar .search-form{
+  margin:0 30rpx 0 10rpx;
+}

@@ -1,0 +1,45 @@
+<view class="box nav fixed">
+  <view class="cu-bar search bg-white">
+    <view class="action" bindtap="showModal" data-target="RadioModal">
+      <text>{{curLang}}</text>
+      <text class="cuIcon-triangledownfill"></text>
+    </view>
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="{{language.good_list[3]}}" name="keyword" confirm-type="search" bindinput="searchGoods" value="{{keyword}}"></input>
+    </view>
+    <view class="action text-gray flex-direction text-cyan" catchtap="gotoMyOrder">
+      <view class="cu-avatar sm round margin-0"><open-data type="userAvatarUrl"></open-data></view>
+      <text class="text-xs">{{language.good_list[4]}}</text> 
+    </view>
+    <view class="cu-modal {{modalName=='RadioModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog" catchtap>
+    <radio-group class="block" bindchange="changeLang">
+      <view class="cu-list menu text-left">
+        <view class="cu-item" wx:for="{{lang}}" wx:key="{{item.value}}">
+          <label class="flex justify-between align-center flex-sub">
+            <view class="flex-sub">{{item.name}}</view>
+            <radio class="round" value="{{item.value}}" checked="{{item.name==curLang}}"></radio>
+          </label>
+        </view>
+      </view>
+    </radio-group>
+  </view>
+</view>
+  </view>
+</view>
+<view class="cu-list grid col-2">
+  <navigator class="cu-item goods-list" hover-class="none" url="./details?id={{item.goods_id}}" wx:for="{{goods}}" wx:key="{{item.goods_id}}">
+    <image src="{{item.photo}}" mode="aspectFill"></image>
+    <text class="title">{{item.title}}</text>
+    <view class="flex justify-between padding-top-xs">
+      <view class="flex">
+        <text class="price padding-right-xs">{{language.good_list[10]}}{{item.mall_price}}</text>
+        <text class="lineThrough text-gray">{{language.good_list[10]}}{{item.price}}</text>
+      </view>
+      <button class="cu-btn sm bg-gradual-orange">{{language.good_list[7]}}</button>
+    </view>
+    </navigator>
+  </view>
+  <view wx:if="{{showLoading}}" class="padding text-center" catchtap="GetMore">{{language.good_list[5]}}</view>
+  <view wx:else data-info="{{!isLoad?language.good_list[8]:language.good_list[6]}}" class="cu-load {{!isLoad?'loading':'over'}}"></view>

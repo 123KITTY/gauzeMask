@@ -1,0 +1,12 @@
+<view class='UCenter-bg'>
+  <view class="cu-avatar xl radius">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class='margin-top-sm'>
+    <text></text>
+  </view>
+</view>
+<view class='padding-xl'>
+  <button class='cu-btn bg-green shadow lg block' open-type="getUserInfo" bindgetuserinfo="GetUserInfo">{{language.auth[0]}}</button>
+  <button catchtap="navBack" class="cu-btn lg block bg-gray margin-top-sm">{{language.auth[1]}}</button>
+</view>

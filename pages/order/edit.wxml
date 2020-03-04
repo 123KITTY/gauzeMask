@@ -1,0 +1,80 @@
+<!--pages/order/edit.wxml-->
+<form bindsubmit="formSubmit">
+	<view class="cu-form-group margin-top-xs">
+		<view class="title">{{language.order_edit[2]}}</view>
+		<input placeholder="{{language.order_edit[3]}}" name="buyer_name" value="{{buyer_name}}"></input>
+    <view class="cu-capsule radius">
+      {{language.order_edit[4]}}：san.zhang
+    </view>
+	</view>
+  <view class="cu-form-group margin-top-xs">
+		<view class="title">{{language.order_edit[5]}}</view>
+		<input placeholder="{{language.order_edit[6]}}" name="buyer_cardid"  value="{{buyer_cardid}}" type="idcard"></input>
+	</view>
+  <view class="cu-form-group align-start margin-top-xs">
+		<view class="title">{{language.order_edit[7]}}</view>
+		<textarea maxlength="-1" placeholder="{{language.order_edit[8]}}" name="buyer_address" value="{{buyer_address}}"></textarea>
+	</view>
+  <view class="cu-form-group margin-top-xs">
+		<view class="title">{{language.order_edit[9]}}</view>
+		<input placeholder="{{language.order_edit[10]}}" name="buyer_number" value="{{buyer_number}}" type="number"></input>
+	</view>
+  <view class="cu-form-group margin-top-xs">
+		<view class="title">{{language.order_edit[11]}}</view>
+		<input placeholder="{{language.order_edit[12]}}" name="buyer_freight" value="{{buyer_freight}}" type="digit"></input>
+    <view class="cu-capsule radius">
+      {{language.order_edit[13]}}
+    </view>
+	</view>
+  <!-- <view class="cu-bar bg-white margin-top-xs">
+		<view class="action text-black">
+			付款流水
+		</view> -->
+    <!-- <view class="action">
+			至少有一张
+		</view> -->
+	<!-- </view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{buyer_pic_url}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{buyer_pic_url[index]}}">
+				<image src='{{buyer_pic_url[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{buyer_pic_url.length<1}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view> -->
+  <!-- <view class="cu-form-group align-start margin-top-xs">
+		<view class="title">采购 DHL AWB</view>
+		<textarea maxlength="-1" placeholder="请输入" name="buyer_awb" value="{{buyer_awb}}"></textarea>
+	</view> -->
+<view class="cu-form-group align-start margin-top-xs">
+		<view class="title">{{language.order_edit[14]}}</view>
+		<textarea placeholder=""  name="note" value="{{note}}"></textarea>
+</view>
+  <view class="cu-bar foot bg-white" wx:if="{{!isCreated}}">
+     <button formType="submit" class="cu-btn block bg-green margin-tb-sm flex-sub margin-tb-xs margin-lr-sm lg" disabled="{{isLoading}}" type="" loading="{{isLoading}}">
+     {{isLoading?language.order_edit[15]:language.order_edit[16]}}</button>
+  </view>
+</form>
+<view class="cu-modal {{modalName=='submitSuccess'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">{{language.order_edit[17]}}</view>
+      <view class="action" bindtap="goback">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl text-green">
+      {{language.order_edit[18]}}
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub" bindtap="gotoHome">{{language.order_edit[19]}}</view>
+      <view class="action margin-0 flex-sub solid-left" bindtap="goOrderList">{{language.order_edit[20]}}</view>
+      <view class="action margin-0 flex-sub solid-left text-green" bindtap="gotoDetail">{{language.order_edit[21]}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+/* pages/order/edit.wxss */
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+page{
+  padding-bottom:140rpx;
+}
+.cu-form-group textarea[disabled], .cu-form-group textarea[disabled] .placeholder{
+  color: inherit
+}
+.cu-bar .action:first-child {
+  white-space: nowrap;
+  margin-right: 30rpx
+}

@@ -1,0 +1,31 @@
+<!--pages/order/list.wxml-->
+<!-- <scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{OrderStates}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+      {{item}}
+    </view>
+  </view>
+</scroll-view> -->
+ <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}">
+  <view class="cu-item" wx:for="{{list}}" wx:key="{{item.order_id}}" catchtap="gotoDetail"  data-orderid="{{item.order_id}}" data-goodid="{{item.goods_id}}">
+      <view class="content padding-tb-sm">
+        <view>
+          <text class="cuIcon-ticket text-blue margin-right-xs"></text> {{language.order_list[1]}}：{{item.ordersn}}
+        </view>
+        <view class="text-gray text-sm">
+          <text class="cuIcon-infofill text-blue margin-right-xs"></text>{{language.order_list[3]}}：{{item.buyer_number}}
+           <!-- {{language.order_list[4]}}：{{item.buyer_awb?item.buyer_awb:language.order_list[5]}} -->
+        </view>
+      </view>
+     <view class="action">
+        <view class="cu-tag bg-green light  radius" wx:if="{{item.buyer_pic_url}}"> 
+        {{language.order_list[6]}}
+        </view>
+        <button wx:else class="cu-btn bg-green shadow sm radius" catchtap="gotoDetail" data-orderid="{{item.order_id}}" data-goodid="{{item.goods_id}}">
+          <!-- <text class="cuIcon-upload"></text> -->
+          {{language.order_list[2]}}</button>
+      </view>
+    </view>
+ </view>
+<view wx:if="{{isLoad&&isEmpty}}" class="padding text-center"> {{language.order_list[7]}}</view>
+<view wx:else data-info="{{!isLoad?language.good_list[8]:language.good_list[6]}}" class="cu-load {{!isLoad?'loading':'over'}}"></view>

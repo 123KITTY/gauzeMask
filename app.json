@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/goods/list",
+    "pages/order/list",
+    "pages/auth/auth",
+    "pages/goods/details",
+    "pages/order/edit",
+    "pages/order/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "欧洲直采",
+    "navigationStyle": "default",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,43 @@
+<import src="/utils/wxParse/wxParse.wxml"></import>
+<view class="cu-card case no-card">
+  <view class="cu-item shadow">
+    <view class="image">
+      <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+        <swiper-item wx:for="{{swiperList}}" wx:key="item.url">
+          <image src="{{item.url}}" mode="aspectFill"></image>
+          <!-- <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video> -->
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="padding-lr padding-tb-sm">
+      <view class="text-df">
+        {{detail.title}}
+      </view>
+      <view class="text-sm text-gray margin-top-xs">
+         {{detail.instructions}}
+      </view>
+      <view class="padding-top-xs padding-bottom-lg">
+        <text class="text-df text-red padding-right-sm">{{language.good_detail[4]}}{{detail.mall_price}}</text>
+        <text class="lineThrough">{{language.good_detail[4]}}{{detail.price}}</text>
+      </view>
+      <view class="text-center padding-bottom-sm solid-bottom">{{language.good_detail[0]}}</view>
+      <view class="bg-white padding-top-lg">
+      <template is="wxParse" data="{{wxParseData:wxParseData_buycontent.nodes}}"></template>
+      </view>
+    </view>
+    <!-- <button class="cu-btn block bg-gradual-orange margin-tb-xs margin-lr-sm lg align-center flex-sub" catchtap="buy">
+    立即购买
+    </button> -->
+  <view class="cu-bar foot bg-white tabbar border shop">
+    <view class="action" catchtap="gotoHome">
+      <view class="cuIcon-home">
+      </view>
+      {{language.good_detail[1]}}
+    </view>
+    <view class="action text-orange" catchtap="gotoMyOrder">
+      <view class="cuIcon-profile"></view>  {{language.good_detail[2]}}
+    </view>
+    <view class="bg-gradual-orange submit" catchtap="buy"> {{language.good_detail[3]}}</view>
+  </view>
+</view>
+</view>

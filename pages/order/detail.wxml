@@ -1,0 +1,122 @@
+<!--pages/order/edit.wxml-->
+
+<view class="cu-bar bg-white margin-top-xs">
+  <view class="action text-black">
+     <text class="cuIcon-title text-blue"></text>{{language.order_detail[1]}}
+  </view>
+  <view class="action" wx:if="{{!isSubmited}}">
+     <button class="cu-btn bg-green shadow sm radius" disabled="{{isLoading||orderDetail.buyer_pic_url.length<=0}}" type="" loading="{{isLoading}}" catchtap="UploadFile">
+         {{language.order_detail[11]}}</button>
+  </view>
+</view>
+<view class="cu-form-group">
+  <view class="grid col-4 grid-square flex-sub">
+    <view class="bg-img" wx:for="{{orderDetail.buyer_pic_url}}" wx:key="item" bindtap="ViewImage" data-url="{{item}}">
+      <image src='{{item}}' mode='aspectFill'></image>
+      <view class="cu-tag bg-red" wx:if="{{!isSubmited}}" catchtap="DelImg" data-index="{{index}}">
+        <text class="cuIcon-close"></text>
+      </view>
+    </view>
+    <view class="solids" bindtap="ChooseImage" wx:if="{{orderDetail.buyer_pic_url.length<1}}">
+      <text class="cuIcon-cameraadd"></text>
+    </view>
+  </view>
+</view>
+<view class="cu-bar bg-white margin-top">
+  <view class="action text-black">
+     <text class="cuIcon-title text-blue"></text>{{language.order_detail[2]}}
+  </view>
+  <view class="action">
+    {{orderDetail.ordersn}}
+  </view>
+</view>
+
+
+<view class="cu-bar bg-white margin-top">
+  <view class="action text-black">
+     <text class="cuIcon-title text-blue"></text>{{language.order_detail[3]}}
+  </view>
+  <view class="action">
+   {{orderDetail.buyer_awb?orderDetail.buyer_awb:language.order_detail[12]}}
+  </view>
+</view>
+<view class="cu-bar bg-white margin-top  solid-bottom">
+  <view class="action text-black">
+    <text class="cuIcon-title text-blue"></text>{{language.order_detail[4]}}：
+  </view>
+</view>
+<view class="cu-bar bg-white margin-top-xs">
+  <view class="action text-black">
+     {{language.order_detail[5]}}
+  </view>
+  <view class="action">
+   {{goodDetail.title}}
+  </view>
+</view>
+<view class="cu-bar bg-white margin-top-xs">
+  <view class="action text-black">
+    {{language.order_detail[6]}}
+  </view>
+  <view class="action">
+   {{orderDetail.buyer_number}}
+  </view>
+</view>
+<view class="cu-bar bg-white margin-top-xs">
+  <view class="action text-black">
+     {{language.order_detail[7]}}
+  </view>
+  <view class="action">
+  {{orderDetail.buyer_freight}}
+  </view>
+</view>
+<view class="cu-bar bg-white margin-top-xs">
+  <view class="action text-black">
+    {{language.order_detail[8]}}
+  </view>
+  <view class="action">
+  {{orderDetail.buyer_name}}
+  </view>
+</view>
+<view class="cu-bar bg-white margin-top-xs">
+  <view class="action text-black">
+    {{language.order_detail[9]}}
+  </view>
+  <view class="action">
+  {{orderDetail.buyer_cardid}}
+  </view>
+</view>
+<view class="cu-bar bg-white margin-top-xs">
+  <view class="action text-black">
+     {{language.order_detail[10]}}
+  </view>
+  <view class="action">
+  {{orderDetail.buyer_address}}
+  </view>
+</view>
+<block  wx:if="{{orderDetail.note.trim()}}">
+<view class="cu-bar bg-white margin-top">
+  <view class="action text-black">
+     <text class="cuIcon-title text-blue"></text>{{language.order_detail[11]}}
+  </view>
+</view>
+<view class="cu-form-group">
+  <textarea disabled name="note" value="{{orderDetail.note}}"></textarea>
+</view>
+</block>
+<view class="cu-modal {{modalName=='delImg'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">{{language.tips[1]}}</view>
+      <view class="action" bindtap="goback">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl text-green">
+      {{language.tips[2]}}
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub" bindtap="cancelDelImg">{{language.tips[3]}}</view>
+      <view class="action margin-0 flex-sub solid-left text-green" bindtap="confirmDelImg">{{language.tips[4]}}</view>
+    </view>
+  </view>
+</view>
